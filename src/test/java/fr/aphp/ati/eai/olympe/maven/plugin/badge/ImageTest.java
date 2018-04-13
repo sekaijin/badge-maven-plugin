@@ -20,9 +20,9 @@ public class ImageTest
       SVGImageTemplate template = SVGImageTemplate.ROUNDED;
       SVGImageData data = SVGImageData.Builder.instance(fp)
          .withLabelBackgroundColor(SVGImageColor.DARK_GREY)
-         .withLabelText("labelText")
+         .withLabelText("badge-maven")
          .withValueBackgroundColor(SVGImageColor.GREEN)
-         .withValueText("1.0.0")
+         .withValueText("1.0.0-SNAPSHOT")
          .withTemplate(template)
          .build();
       
