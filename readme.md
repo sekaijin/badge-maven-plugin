@@ -16,5 +16,5 @@ https://github.com/QualInsight/qualinsight-plugins-sonarqube-badges
           </badges>
         </configuration>
       </plugin>
-![badge-maven.svg]
+![badge-maven.svg](badge-maven.svg)
       
