@@ -1,13 +1,12 @@
-package fr.aphp.ati.eai.olympe.maven.plugin.badge;
+package org.sekaijin.maven.plugin.badge;
 
 import org.junit.Test;
-
-import fr.aphp.ati.eai.olympe.maven.plugin.badge.font.FontProvider;
-import fr.aphp.ati.eai.olympe.maven.plugin.badge.font.FontProviderLocator;
-import fr.aphp.ati.eai.olympe.maven.plugin.badge.svg.SVGImageColor;
-import fr.aphp.ati.eai.olympe.maven.plugin.badge.svg.SVGImageData;
-import fr.aphp.ati.eai.olympe.maven.plugin.badge.svg.SVGImageGenerator;
-import fr.aphp.ati.eai.olympe.maven.plugin.badge.svg.SVGImageTemplate;
+import org.sekaijin.maven.plugin.badge.font.FontProvider;
+import org.sekaijin.maven.plugin.badge.font.FontProviderLocator;
+import org.sekaijin.maven.plugin.badge.svg.SVGImageColor;
+import org.sekaijin.maven.plugin.badge.svg.SVGImageData;
+import org.sekaijin.maven.plugin.badge.svg.SVGImageGenerator;
+import org.sekaijin.maven.plugin.badge.svg.SVGImageTemplate;
 
 public class ImageTest
 {

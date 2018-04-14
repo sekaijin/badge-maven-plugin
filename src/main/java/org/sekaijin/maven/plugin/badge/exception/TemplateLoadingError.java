@@ -17,11 +17,11 @@
  * License along with this program. If not, you can retrieve a copy
  * from <http://www.gnu.org/licenses/>.
  */
-package fr.aphp.ati.eai.olympe.maven.plugin.badge.exception;
+package org.sekaijin.maven.plugin.badge.exception;
 
 import java.io.IOException;
 
-import fr.aphp.ati.eai.olympe.maven.plugin.badge.svg.SVGImageTemplate;
+import org.sekaijin.maven.plugin.badge.svg.SVGImageTemplate;
 
 /**
  * Thrown if a problem occurs when trying to load {@link SVGImageTemplate}.

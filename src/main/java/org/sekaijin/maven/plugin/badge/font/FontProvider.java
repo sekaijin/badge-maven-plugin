@@ -17,7 +17,7 @@
  * License along with this program. If not, you can retrieve a copy
  * from <http://www.gnu.org/licenses/>.
  */
-package fr.aphp.ati.eai.olympe.maven.plugin.badge.font;
+package org.sekaijin.maven.plugin.badge.font;
 
 import java.awt.Font;
 import java.awt.font.FontRenderContext;

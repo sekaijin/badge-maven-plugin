@@ -17,17 +17,16 @@
  * License along with this program. If not, you can retrieve a copy
  * from <http://www.gnu.org/licenses/>.
  */
-package fr.aphp.ati.eai.olympe.maven.plugin.badge.font;
+package org.sekaijin.maven.plugin.badge.font;
 
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.io.IOException;
 import java.io.InputStream;
 
+import org.sekaijin.maven.plugin.badge.exception.NoSuitableFontError;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import fr.aphp.ati.eai.olympe.maven.plugin.badge.exception.NoSuitableFontError;
 
 /**
  * {@link FontProvider} that provides fallback {@link Font} that is embedded with the plugin. Should only be used if the preferred {@link Font} cannot be loaded.

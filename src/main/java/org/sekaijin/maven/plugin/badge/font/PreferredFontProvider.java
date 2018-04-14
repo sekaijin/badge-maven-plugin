@@ -17,14 +17,13 @@
  * License along with this program. If not, you can retrieve a copy
  * from <http://www.gnu.org/licenses/>.
  */
-package fr.aphp.ati.eai.olympe.maven.plugin.badge.font;
+package org.sekaijin.maven.plugin.badge.font;
 
 import java.awt.Font;
 
+import org.sekaijin.maven.plugin.badge.exception.FontLoadingException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import fr.aphp.ati.eai.olympe.maven.plugin.badge.exception.FontLoadingException;
 
 /**
  * {@link FontProvider} that provides the preferred {@link Font} if it is available on the machine running SonarQube.

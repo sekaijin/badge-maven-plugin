@@ -10,7 +10,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package fr.aphp.ati.eai.olympe.maven.plugin.badge;
+package org.sekaijin.maven.plugin.badge;
 
 import java.io.File;
 import java.io.IOException;
@@ -20,13 +20,12 @@ import org.apache.commons.lang.CharEncoding;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
-
-import fr.aphp.ati.eai.olympe.maven.plugin.badge.font.FontProvider;
-import fr.aphp.ati.eai.olympe.maven.plugin.badge.font.FontProviderLocator;
-import fr.aphp.ati.eai.olympe.maven.plugin.badge.svg.SVGImageColor;
-import fr.aphp.ati.eai.olympe.maven.plugin.badge.svg.SVGImageData;
-import fr.aphp.ati.eai.olympe.maven.plugin.badge.svg.SVGImageGenerator;
-import fr.aphp.ati.eai.olympe.maven.plugin.badge.svg.SVGImageTemplate;
+import org.sekaijin.maven.plugin.badge.font.FontProvider;
+import org.sekaijin.maven.plugin.badge.font.FontProviderLocator;
+import org.sekaijin.maven.plugin.badge.svg.SVGImageColor;
+import org.sekaijin.maven.plugin.badge.svg.SVGImageData;
+import org.sekaijin.maven.plugin.badge.svg.SVGImageGenerator;
+import org.sekaijin.maven.plugin.badge.svg.SVGImageTemplate;
 
 /**
  * Goal which merges text files from a series of directories into a single text output file

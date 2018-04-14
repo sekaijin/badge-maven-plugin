@@ -17,9 +17,9 @@
  * License along with this program. If not, you can retrieve a copy
  * from <http://www.gnu.org/licenses/>.
  */
-package fr.aphp.ati.eai.olympe.maven.plugin.badge.svg;
+package org.sekaijin.maven.plugin.badge.svg;
 
-import fr.aphp.ati.eai.olympe.maven.plugin.badge.font.FontProvider;
+import org.sekaijin.maven.plugin.badge.font.FontProvider;
 
 /**
  * Container holding data required in order to generate SVG images.

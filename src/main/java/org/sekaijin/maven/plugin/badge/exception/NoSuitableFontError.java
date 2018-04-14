@@ -17,16 +17,16 @@
  * License along with this program. If not, you can retrieve a copy
  * from <http://www.gnu.org/licenses/>.
  */
-package fr.aphp.ati.eai.olympe.maven.plugin.badge.exception;
+package org.sekaijin.maven.plugin.badge.exception;
 
 import java.awt.Font;
 
 /**
- * Thrown when preferred {@link Font} cannot be loaded.
+ * Thrown if a problem occurs when trying to load embedded fallback {@link Font}.
  *
  * @author Michel Pawlak
  */
-public class FontLoadingException extends Exception {
+public class NoSuitableFontError extends Error {
 
     /**
      *
@@ -35,8 +35,10 @@ public class FontLoadingException extends Exception {
 
     /**
      * Default constructor that sets a generic message explaining the issue.
+     * 
+     * @param cause cause bound to the {@link Exception}
      */
-    public FontLoadingException() {
-        super("Preferred font is missing.");
+    public NoSuitableFontError(final Exception cause) {
+        super("Fallback font could not be loaded", cause);
     }
 }

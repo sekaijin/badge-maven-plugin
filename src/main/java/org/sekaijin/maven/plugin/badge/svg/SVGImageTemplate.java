@@ -17,15 +17,14 @@
  * License along with this program. If not, you can retrieve a copy
  * from <http://www.gnu.org/licenses/>.
  */
-package fr.aphp.ati.eai.olympe.maven.plugin.badge.svg;
+package org.sekaijin.maven.plugin.badge.svg;
 
 import java.io.IOException;
 import java.io.InputStream;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.CharEncoding;
-
-import fr.aphp.ati.eai.olympe.maven.plugin.badge.exception.TemplateLoadingError;
+import org.sekaijin.maven.plugin.badge.exception.TemplateLoadingError;
 
 /**
  * Available badge templates

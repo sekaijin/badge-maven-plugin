@@ -1,8 +1,7 @@
-package fr.aphp.ati.eai.olympe.maven.plugin.badge;
+package org.sekaijin.maven.plugin.badge;
 
 import org.apache.commons.lang.StringUtils;
-
-import fr.aphp.ati.eai.olympe.maven.plugin.badge.svg.SVGImageColor;
+import org.sekaijin.maven.plugin.badge.svg.SVGImageColor;
 
 public class Badge
 {
