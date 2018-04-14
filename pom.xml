@@ -34,6 +34,12 @@
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.7.25</version>
+			<scope>test</scope>
+		</dependency>
 
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -87,13 +93,13 @@
 		</plugins>
 	</build>
 
-    <ciManagement>
-        <system>jenkins</system>
-        <url>http://sap-integration.sap.aphp.fr:8080/jenkins/job/bade-maven-plugin/</url>
-    </ciManagement>
-  <scm>
-    <connection>scm:svn:svn://svneai.aphp.fr/olympe/outils/commun/maven-plugins/badge-maven-plugin/trunk</connection>
-    <developerConnection>scm:svn:svn://svneai.aphp.fr/olympe/outils/commun/maven-plugins/badge-maven-plugin/trunk</developerConnection>
-  </scm>
-  <groupId>org.sekajin</groupId>
+	<ciManagement>
+		<system>jenkins</system>
+		<url>http://sap-integration.sap.aphp.fr:8080/jenkins/job/bade-maven-plugin/</url>
+	</ciManagement>
+	<scm>
+		<connection>scm:svn:svn://svneai.aphp.fr/olympe/outils/commun/maven-plugins/badge-maven-plugin/trunk</connection>
+		<developerConnection>scm:svn:svn://svneai.aphp.fr/olympe/outils/commun/maven-plugins/badge-maven-plugin/trunk</developerConnection>
+	</scm>
+	<groupId>org.sekajin</groupId>
 </project>
