@@ -32,9 +32,9 @@ public class SVGImageData {
 
     private String valueText;
 
-    private SVGImageColor labelBackgroundColor;
+    private SVGImageColor labelBackgroundColor = SVGImageColor.DARK_GREY;
 
-    private SVGImageColor valueBackgroundColor;
+    private SVGImageColor valueBackgroundColor = SVGImageColor.DARK_GREY;
 
     private int labelWidth;
 
@@ -231,14 +231,21 @@ public class SVGImageData {
          */
         public SVGImageData build() {
             final int labelRawWidth = this.fontProvider.computeWidth(this.data.labelText());
-            final int valueRawWidth = this.fontProvider.computeWidth(this.data.valueText());
             final int localLabelWidth = labelRawWidth + (2 * X_MARGIN);
-            final int localValueWidth = valueRawWidth + (2 * X_MARGIN);
             this.data.labelWidth = localLabelWidth;
-            this.data.valueWidth = localValueWidth;
-            this.data.totalWidth = localLabelWidth + localValueWidth;
             this.data.labelHalfWidth = localLabelWidth / 2;
-            this.data.valueHalfWidth = localLabelWidth + (localValueWidth / 2);
+
+            int localValueWidth;
+            if (null != this.data.valueText()) {
+            	final int valueRawWidth = this.fontProvider.computeWidth(this.data.valueText());
+                localValueWidth = valueRawWidth + (2 * X_MARGIN);
+                this.data.valueWidth = localValueWidth;
+                this.data.valueHalfWidth = localLabelWidth + (localValueWidth / 2);
+            } else {
+            	localValueWidth = 0;
+            }
+
+            this.data.totalWidth = localLabelWidth + localValueWidth;
             this.data.fontFamily = this.fontProvider.fontFamilyName();
             return this.data;
         }

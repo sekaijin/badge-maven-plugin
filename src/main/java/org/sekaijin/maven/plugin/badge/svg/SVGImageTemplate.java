@@ -39,7 +39,7 @@ public enum SVGImageTemplate {
     /**
      * Template that generates lightweight badges using a flat design.
      */
-    FLAT("badge-flat-template.svg");
+    SIMPLE("badge-simple-template.svg");
 
     private String content;
 

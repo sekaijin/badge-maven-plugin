@@ -16,12 +16,12 @@ public class ImageTest
       SVGImageGenerator ig = new SVGImageGenerator(fpl);
       
       FontProvider fp = fpl.fontProvider();
-      SVGImageTemplate template = SVGImageTemplate.ROUNDED;
+      SVGImageTemplate template = SVGImageTemplate.SIMPLE;
       SVGImageData data = SVGImageData.Builder.instance(fp)
          .withLabelBackgroundColor(SVGImageColor.DARK_GREY)
          .withLabelText("badge-maven")
-         .withValueBackgroundColor(SVGImageColor.GREEN)
-         .withValueText("1.0.0-SNAPSHOT")
+//         .withValueBackgroundColor(SVGImageColor.GREEN)
+//         .withValueText("1.0.0-SNAPSHOT")
          .withTemplate(template)
          .build();
       

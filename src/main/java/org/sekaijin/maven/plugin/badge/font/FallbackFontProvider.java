@@ -37,7 +37,7 @@ public class FallbackFontProvider extends FontProvider {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(FallbackFontProvider.class);
 
-    private static final String FONT_PATH = "/com/qualinsight/plugins/sonarqube/badges/font/PTC55F.ttf";
+    private static final String FONT_PATH = "/font/PTC55F.ttf";
 
     private static final int FONT_SIZE = 11;
 

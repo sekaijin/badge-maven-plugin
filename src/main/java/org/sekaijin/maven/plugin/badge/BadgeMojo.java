@@ -20,6 +20,7 @@ import org.apache.commons.lang.CharEncoding;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
+import org.codehaus.plexus.util.StringUtils;
 import org.sekaijin.maven.plugin.badge.font.FontProvider;
 import org.sekaijin.maven.plugin.badge.font.FontProviderLocator;
 import org.sekaijin.maven.plugin.badge.svg.SVGImageColor;
@@ -35,92 +36,101 @@ import org.sekaijin.maven.plugin.badge.svg.SVGImageTemplate;
  */
 public class BadgeMojo extends AbstractMojo {
 
-   /**
-    * @parameter
-    * @required
-    */
-   private Badge[] badges;
-   /**
-    * default: ${project.basedir}/target/site/resources/
-    * @parameter expression="${project.basedir}/target/site/resources/"
-    * @required
-    */
-   protected File outputDir;
-   private SVGImageGenerator ig;
-   private FontProvider fp;
-   private SVGImageTemplate template;
+	/**
+	 * @parameter
+	 * @required
+	 */
+	private Badge[] badges;
+	/**
+	 * default: ${project.basedir}/target/site/resources/
+	 * @parameter expression="${project.basedir}/target/site/resources/"
+	 * @required
+	 */
+	protected File outputDir;
+	private SVGImageGenerator ig;
+	private FontProvider fp;
 
-   public BadgeMojo() throws IOException {
-      super();
-      FontProviderLocator fpl = new FontProviderLocator();
-      ig = new SVGImageGenerator(fpl);
-      getLog().info("SVGImageGenerator is now ready.");
-      fp = fpl.fontProvider();
-      template = SVGImageTemplate.ROUNDED;
-   }
+	public BadgeMojo() throws IOException {
+		super();
+		FontProviderLocator fpl = new FontProviderLocator();
+		ig = new SVGImageGenerator(fpl);
+		getLog().info("SVGImageGenerator is now ready.");
+		fp = fpl.fontProvider();
+	}
 
-   /**
-    * @see org.apache.maven.plugin.AbstractMojo#execute()
-    */
-   public void execute() throws MojoExecutionException, MojoFailureException {
-      getOutputDir().mkdirs();
-      for (Badge badge : this.badges) {
-         try{
-            String svg = makeBadge(badge);
-            
-            String path = getOutputDir().getAbsolutePath()+"/"+badge.getName().toLowerCase()+".svg";
-            FileUtils.writeStringToFile(new File(path), svg, CharEncoding.UTF_8);
-            getLog().debug(path+" ok");
-            
-         }catch(Exception e){
-            getLog().warn(e.getMessage());
-         }
+	/**
+	 * @see org.apache.maven.plugin.AbstractMojo#execute()
+	 */
+	public void execute() throws MojoExecutionException, MojoFailureException {
+		getOutputDir().mkdirs();
+		for (Badge badge : this.badges) {
+			try{
+				String svg = makeBadge(badge);
 
-         getLog().info("Finished : " + badge.getName() + " " + badge.getVersion() + " " + getOutputDir() + " ");
+				String path = getOutputDir().getAbsolutePath()+"/"+badge.getName().toLowerCase()+".svg";
+				FileUtils.writeStringToFile(new File(path), svg, CharEncoding.UTF_8);
+				getLog().debug(path+" ok");
 
-      }
-   }
+			}catch(Exception e){
+				getLog().warn(e.getMessage());
+			}
 
-   public String makeBadge(Badge badge){
-      SVGImageData data = SVGImageData.Builder.instance(fp)
-         .withLabelBackgroundColor(SVGImageColor.DARK_GREY)
-         .withLabelText(badge.getName())
-         .withValueBackgroundColor(badge.getColor())
-         .withValueText(badge.getVersion())
-         .withTemplate(template)
-         .build();
-      
-      return ig.buildFor(data);
+			getLog().info("Finished : " + badge.getName() + " " + badge.getVersion() + " " + getOutputDir() + " ");
 
-   }
+		}
+	}
 
-   /**
-    * @return the badges
-    */
-   public Badge[] getBadges(){
-      return badges;
-   }
+	public String makeBadge(Badge badge){
 
-   /**
-    * @param badges the badges to set
-    */
-   public void setBadges(Badge[] badges){
-      this.badges = badges;
-   }
+		SVGImageData data;
+		if (StringUtils.isEmpty(badge.getVersion())) {
+			data = SVGImageData.Builder.instance(fp)
+					.withLabelBackgroundColor(SVGImageColor.DARK_GREY)
+					.withLabelText(badge.getName())
+					.withTemplate(SVGImageTemplate.SIMPLE)
+					.build();
+		} else {
+			data = SVGImageData.Builder.instance(fp)
+					.withLabelBackgroundColor(SVGImageColor.DARK_GREY)
+					.withLabelText(badge.getName())
+					.withValueBackgroundColor(badge.getColor())
+					.withValueText(badge.getVersion())
+					.withTemplate(SVGImageTemplate.ROUNDED)
+					.build();
+		}
 
-   /**
-    * @return the outputDir
-    */
-   public File getOutputDir(){
-      return outputDir;
-   }
 
-   /**
-    * @param outputDir the outputDir to set
-    */
-   public void setOutputDir(File outputDir){
-      this.outputDir = outputDir;
-   }
+		return ig.buildFor(data);
+
+	}
+
+	/**
+	 * @return the badges
+	 */
+	public Badge[] getBadges(){
+		return badges;
+	}
+
+	/**
+	 * @param badges the badges to set
+	 */
+	public void setBadges(Badge[] badges){
+		this.badges = badges;
+	}
+
+	/**
+	 * @return the outputDir
+	 */
+	public File getOutputDir(){
+		return outputDir;
+	}
+
+	/**
+	 * @param outputDir the outputDir to set
+	 */
+	public void setOutputDir(File outputDir){
+		this.outputDir = outputDir;
+	}
 
 
 }
